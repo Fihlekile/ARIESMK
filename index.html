@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f2e9">
+  <meta name="description" content="A little heat, a lot of heart. Meet Aries Pantry's small-batch chili oil, made to make everyday meals unforgettable.">
+  <title>Aries Pantry — A little heat, a lot of heart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f2e9;
+      --paper-deep: #efe6d8;
+      --ink: #2d211b;
+      --muted: #756a60;
+      --red: #b93d28;
+      --red-dark: #8e2c1d;
+      --orange: #e77936;
+      --green: #465b3c;
+      --line: rgba(45, 33, 27, .15);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    .skip-link { position: absolute; z-index: 20; top: 8px; left: 8px; padding: 12px 16px; background: white; transform: translateY(-150%); }
+    .skip-link:focus { transform: none; }
+    .announcement { padding: 9px 20px; background: var(--green); color: white; text-align: center; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .header { position: sticky; z-index: 10; top: 0; border-bottom: 1px solid var(--line); background: rgba(247, 242, 233, .94); backdrop-filter: blur(12px); }
+    .nav { max-width: 1280px; min-height: 76px; margin: auto; padding: 0 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--red); font-family: var(--serif); font-size: 27px; font-weight: 700; text-decoration: none; letter-spacing: -.06em; }
+    .brand span { display: block; margin-top: -6px; color: var(--ink); font-family: var(--sans); font-size: 8px; font-weight: 600; letter-spacing: .25em; text-align: center; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { color: var(--ink); font-size: 12px; text-decoration: none; }
+    .nav-links a:hover { color: var(--red); }
+    .nav-shop { padding: 12px 18px; border: 1px solid var(--ink); border-radius: 2px; font-weight: 600; }
+    .menu-toggle { display: none; padding: 9px 12px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
+    .hero { position: relative; overflow: hidden; min-height: 650px; display: grid; grid-template-columns: .85fr 1.15fr; background: #e8d7be; }
+    .hero-copy { z-index: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 90px 8vw 90px max(36px, calc((100vw - 1200px)/2)); }
+    .eyebrow { margin: 0 0 20px; color: var(--red); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; }
+    h1 { max-width: 580px; margin-bottom: 23px; font-size: clamp(56px, 6.6vw, 90px); line-height: .99; letter-spacing: -.055em; }
+    h1 em { color: var(--red); font-weight: 500; }
+    .hero-copy > p:not(.eyebrow) { max-width: 420px; margin-bottom: 30px; color: #594a3f; font-size: 15px; line-height: 1.8; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 22px; border: 1px solid var(--red); border-radius: 2px; background: var(--red); color: white; font-size: 12px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; cursor: pointer; }
+    .button:hover { transform: translateY(-2px); background: var(--red-dark); }
+    .button-outline { background: transparent; color: var(--red); }
+    .button-outline:hover { color: white; }
+    .hero-note { margin-top: 25px; color: #66574c; font-size: 10px; letter-spacing: .08em; }
+    .hero-art { position: relative; overflow: hidden; min-height: 650px; background: #fff; }
+    .hero-art img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center 46%; }
+    .hero-stamp { position: absolute; z-index: 1; right: 30px; bottom: 30px; width: 112px; height: 112px; display: grid; place-items: center; border: 1px solid white; border-radius: 50%; background: var(--red); color: white; font-family: var(--serif); font-size: 13px; line-height: 1.4; text-align: center; transform: rotate(9deg); }
+    .ticker { overflow: hidden; padding: 16px 0; background: var(--red); color: white; }
+    .ticker-track { display: flex; justify-content: space-around; gap: 26px; min-width: 700px; font-size: 10px; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; }
+    .ticker-track span::after { content: "✳"; margin-left: 30px; color: #f3b765; }
+    .section { padding: 112px 36px; }
+    .container { width: min(1120px, 100%); margin: 0 auto; }
+    .section-heading { max-width: 640px; margin-bottom: 48px; }
+    .section-heading h2 { margin-bottom: 15px; font-size: clamp(38px, 5vw, 60px); line-height: 1.05; letter-spacing: -.045em; }
+    .section-heading > p:last-child { max-width: 520px; margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .story { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 90px; }
+    .story-image { position: relative; min-height: 520px; }
+    .story-image img { height: 520px; }
+    .image-caption { position: absolute; right: -20px; bottom: 22px; padding: 16px 20px; background: var(--paper); font-family: var(--serif); font-size: 15px; }
+    .story-copy h2 { margin-bottom: 20px; font-size: clamp(38px, 5vw, 58px); line-height: 1.04; letter-spacing: -.04em; }
+    .story-copy > p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .text-link { display: inline-block; margin-top: 15px; padding-bottom: 5px; border-bottom: 1px solid var(--red); color: var(--red); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .product { background: var(--paper-deep); }
+    .product-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 90px; }
+    .product-photo { position: relative; overflow: hidden; min-height: 540px; background: #fff; }
+    .product-photo img { position: absolute; inset: 0; height: 100%; object-fit: contain; }
+    .product-copy h2 { margin-bottom: 12px; font-size: clamp(40px, 5vw, 62px); line-height: 1.02; letter-spacing: -.045em; }
+    .product-subtitle { color: var(--muted); font-size: 13px; }
+    .rating { margin: 22px 0; color: var(--red); font-size: 12px; letter-spacing: .05em; }
+    .rating span { margin-left: 8px; color: var(--muted); letter-spacing: 0; }
+    .product-description { color: #655950; font-size: 14px; line-height: 1.85; }
+    .product-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; padding: 0; list-style: none; }
+    .product-points li { display: flex; align-items: center; gap: 9px; font-size: 11px; }
+    .product-points li::before { color: var(--red); content: "✳"; }
+    .buy-row { display: flex; align-items: center; gap: 12px; margin-top: 26px; }
+    .buy-row select { height: 48px; min-width: 120px; padding: 0 12px; border: 1px solid var(--line); border-radius: 2px; background: transparent; color: var(--ink); }
+    .buy-row .button { flex: 1; }
+    .cart-message { min-height: 20px; margin: 12px 0 0; color: var(--green); font-size: 12px; }
+    .ingredients { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; padding-top: 25px; border-top: 1px solid var(--line); }
+    .ingredient-label { color: var(--muted); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .ingredient-value { margin-top: 7px; font-family: var(--serif); font-size: 16px; }
+    .recipes { background: var(--paper); }
+    .recipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .recipe-card { min-width: 0; }
+    .recipe-card img { height: 250px; }
+    .recipe-meta { margin: 18px 0 8px; color: var(--red); font-size: 9px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .recipe-card h3 { margin-bottom: 9px; font-size: 24px; }
+    .recipe-card p:last-child { max-width: 300px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .recipe-submit { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; margin-top: 78px; padding: 42px; background: var(--paper-deep); }
+    .recipe-submit h3 { margin-bottom: 12px; font-size: 32px; }
+    .recipe-submit p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 10px; font-weight: 700; }
+    .field input, .field textarea { width: 100%; padding: 12px; border: 1px solid rgba(45,33,27,.2); border-radius: 2px; background: var(--paper); color: var(--ink); font-size: 12px; }
+    .field textarea { min-height: 90px; resize: vertical; }
+    .form-submit { margin-top: 16px; }
+    .form-message { min-height: 18px; margin: 10px 0 0; color: var(--green); font-size: 12px; }
+    .quote { padding: 100px 36px; background: var(--green); color: white; text-align: center; }
+    .quote .eyebrow { color: #f6bd82; }
+    .quote blockquote { max-width: 850px; margin: 0 auto 23px; font-family: var(--serif); font-size: clamp(30px, 5vw, 53px); line-height: 1.2; }
+    .quote cite { color: rgba(255,255,255,.72); font-size: 11px; font-style: normal; letter-spacing: .08em; }
+    .contact { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; }
+    .contact h2 { margin-bottom: 18px; font-size: 53px; line-height: 1.03; letter-spacing: -.04em; }
+    .contact-copy > p:not(.eyebrow) { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .socials { display: flex; gap: 18px; margin-top: 25px; }
+    .socials a { color: var(--red); font-size: 11px; font-weight: 700; text-decoration: none; }
+    .contact form .button { margin-top: 16px; }
+    footer { padding: 30px 36px; border-top: 1px solid var(--line); }
+    .footer-inner { max-width: 1120px; margin: auto; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; }
+    .footer-inner a { color: var(--red); text-decoration: none; }
+    @media (max-width: 820px) {
+      .nav { padding: 0 22px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; }
+      .hero { min-height: 580px; }
+      .hero-copy { padding: 65px 30px; }
+      .hero-art { min-height: 520px; }
+      .story, .product-grid { gap: 45px; }
+      .story-image, .story-image img { min-height: 430px; height: 430px; }
+      .product-photo { min-height: 460px; }
+      .contact { gap: 50px; }
+    }
+    @media (max-width: 620px) {
+      html { scroll-padding-top: 70px; }
+      .announcement { font-size: 9px; }
+      .nav { min-height: 65px; }
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: 64px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 22px 18px; border-bottom: 1px solid var(--line); background: var(--paper); }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+      .nav-links .nav-shop { margin-top: 12px; padding: 13px; border: 1px solid var(--ink); text-align: center; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 66px 26px 52px; }
+      h1 { max-width: 500px; font-size: clamp(55px, 15vw, 76px); }
+      .hero-copy > p:not(.eyebrow) { font-size: 13px; }
+      .hero-art { min-height: 390px; }
+      .hero-stamp { right: 20px; bottom: 18px; width: 92px; height: 92px; font-size: 11px; }
+      .ticker-track { justify-content: flex-start; padding-left: 16px; }
+      .section { padding: 76px 24px; }
+      .section-heading { margin-bottom: 32px; }
+      .story, .product-grid, .contact { grid-template-columns: 1fr; gap: 35px; }
+      .story-image, .story-image img { min-height: 340px; height: 340px; }
+      .image-caption { right: -5px; }
+      .product-photo { min-height: 390px; }
+      .product-copy { order: -1; }
+      .ingredients { grid-template-columns: 1fr 1fr; }
+      .recipe-grid { grid-template-columns: 1fr; gap: 30px; }
+      .recipe-card img { height: 240px; }
+      .recipe-submit { grid-template-columns: 1fr; gap: 20px; margin-top: 45px; padding: 25px 20px; }
+      .quote { padding: 75px 25px; }
+      .contact h2 { font-size: 45px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="announcement">Small-batch, big flavor — made with a little extra love ✳</div>
+  <header class="header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Aries Pantry home">aries<span>pantry</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#story">Our story</a>
+        <a href="#product">The chili oil</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#contact">Say hello</a>
+        <a class="nav-shop" href="#product">Shop the good stuff <span aria-label="items in bag" id="cart-count">(0)</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Meet your new pantry staple</p>
+        <h1 id="hero-title">A little heat.<br>A lot of <em>heart.</em></h1>
+        <p>Meet the chili oil that makes Tuesday noodles taste like a very good idea. Slow-crafted in small batches, made to go on just about everything.</p>
+        <a class="button" href="#product">Shop Aries Chili Oil <span aria-hidden="true">→</span></a>
+        <p class="hero-note">SMALL BATCH · BIG FLAVOR · ALWAYS MADE WITH LOVE</p>
+      </div>
+      <div class="hero-art">
+        <img src="images/aries-chili-oil.png" alt="Aries chili and garlic oil jar surrounded by fresh chilies, garlic, herbs, and spices">
+        <div class="hero-stamp" aria-hidden="true">Small batch<br>big flavor<br>✳</div>
+      </div>
+    </section>
+    <div class="ticker" aria-label="Small batch, pantry friendly, full of flavor, made with love">
+      <div class="ticker-track"><span>Small batch</span><span>Pantry friendly</span><span>Full of flavor</span><span>Made with love</span></div>
+    </div>
+    <section class="section" id="story" aria-labelledby="story-title">
+      <div class="container story">
+        <div class="story-image">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=85" alt="A home cook preparing a meal in a sunlit kitchen">
+          <div class="image-caption">Made for the everyday magic.</div>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">A little about us</p>
+          <h2 id="story-title">Good things happen around the table.</h2>
+          <p>Aries Pantry started with a simple belief: a really good pantry can make an ordinary meal feel like a small celebration. We make the kind of chili oil you reach for without thinking—and then wonder how dinner ever worked without it.</p>
+          <p>Our batches are built around fragrant chili, garlic, shallot, and a warm blend of spices. We take our time, keep the ingredient list thoughtful, and leave plenty of room for you to make it your own.</p>
+          <a class="text-link" href="#product">Get to know the chili oil →</a>
+        </div>
+      </div>
+    </section>
+    <section class="section product" id="product" aria-labelledby="product-title">
+      <div class="container product-grid">
+        <div class="product-photo">
+          <img loading="eager" src="images/aries-chili-oil.png" alt="Aries chili and garlic oil jar with fresh chilies, garlic, herbs, and spices">
+        </div>
+        <div class="product-copy">
+          <p class="eyebrow">The pantry's new favorite</p>
+          <h2 id="product-title">Aries<br>Chili Oil</h2>
+          <p class="product-subtitle">The finishing touch you didn't know you were missing.</p>
+          <p class="rating" aria-label="Five out of five stars">★★★★★ <span>Made for your table</span></p>
+          <p class="product-description">Fragrant, savory, and gently warming, this spoonable little wonder brings depth and a slow-building glow. Spoon it over noodles, eggs, pizza, dumplings—or anything asking for a little more personality.</p>
+          <ul class="product-points">
+            <li>Small-batch crafted</li><li>Big, layered flavor</li>
+            <li>Easy everyday drizzle</li><li>Made for sharing</li>
+          </ul>
+          <div class="buy-row">
+            <label class="skip-link" for="quantity">Select quantity</label>
+            <select id="quantity" aria-label="Select quantity">
+              <option value="1">1 jar · $16</option>
+              <option value="2">2 jars · $30</option>
+              <option value="3">3 jars · $42</option>
+            </select>
+            <button class="button" id="add-to-bag" type="button">Add to bag · $16</button>
+          </div>
+          <p class="cart-message" id="cart-message" role="status" aria-live="polite"></p>
+          <div class="ingredients" aria-label="Product details">
+            <div><div class="ingredient-label">In the jar</div><div class="ingredient-value">Chili, garlic</div></div>
+            <div><div class="ingredient-label">Also inside</div><div class="ingredient-value">Shallot, spices</div></div>
+            <div><div class="ingredient-label">Made with</div><div class="ingredient-value">Oil &amp; salt</div></div>
+            <div><div class="ingredient-label">Good to know</div><div class="ingredient-value">Check label for allergens</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section recipes" id="recipes" aria-labelledby="recipes-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">A drizzle goes a long way</p>
+          <h2 id="recipes-title">A few delicious places to start.</h2>
+          <p>There are no strict rules here. Just good food, good company, and a spoonful of something lovely.</p>
+        </div>
+        <div class="recipe-grid">
+          <article class="recipe-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80" alt="A bowl of noodles ready for a chili oil drizzle">
+            <p class="recipe-meta">10 minutes · Weeknight favorite</p>
+            <h3>Better-than-takeout noodles</h3>
+            <p>Toss warm noodles with soy, a splash of noodle water, and a happy spoonful of chili oil.</p>
+          </article>
+          <article class="recipe-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80" alt="Breakfast toast and eggs served with fresh herbs">
+            <p class="recipe-meta">15 minutes · Brunch favorite</p>
+            <h3>Jammy eggs on toast</h3>
+            <p>Crisp toast, creamy avocado, soft eggs, and a little chili oil to wake everything up.</p>
+          </article>
+          <article class="recipe-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80" alt="A bowl of dumplings served with a dipping sauce">
+            <p class="recipe-meta">20 minutes · Crowd pleaser</p>
+            <h3>Sunday dumpling dip</h3>
+            <p>Stir chili oil into soy sauce, rice vinegar, and a pinch of sesame seeds. Dip generously.</p>
+          </article>
+        </div>
+        <div class="recipe-submit">
+          <div>
+            <p class="eyebrow">Your turn at the table</p>
+            <h3>Got a good one?</h3>
+            <p>Share the dish you can't stop making. We'd love to hear what you're cooking up with Aries.</p>
+          </div>
+          <form id="recipe-form">
+            <div class="form-grid">
+              <div class="field"><label for="recipe-name">Your name</label><input id="recipe-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="recipe-title">Recipe name</label><input id="recipe-title" name="recipe" required></div>
+              <div class="field full"><label for="recipe-details">Tell us how you make it</label><textarea id="recipe-details" name="details" required></textarea></div>
+            </div>
+            <button class="button form-submit" type="submit">Share your recipe →</button>
+            <p class="form-message" id="recipe-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="quote" aria-label="Customer testimonial">
+      <p class="eyebrow">A little love from the table</p>
+      <blockquote>“It turns the simplest meal into the thing everyone asks for seconds of.”</blockquote>
+      <cite>— A VERY HAPPY HOME COOK</cite>
+    </section>
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact-copy">
+          <p class="eyebrow">Drop us a line</p>
+          <h2 id="contact-title">Let's talk food.</h2>
+          <p>Questions, kind words, or a recipe you think we should try? There's a real person on the other side of this form.</p>
+          <div class="socials"><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">INSTAGRAM ↗</a><a href="mailto:hello@ariespantry.example">EMAIL US ↗</a></div>
+        </div>
+        <form id="contact-form">
+          <div class="form-grid">
+            <div class="field"><label for="contact-name">Your name</label><input id="contact-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="contact-email">Email address</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field full"><label for="contact-subject">What's on your mind?</label><input id="contact-subject" name="subject" required></div>
+            <div class="field full"><label for="contact-message">Your message</label><textarea id="contact-message" name="message" required></textarea></div>
+          </div>
+          <button class="button" type="submit">Send a little note →</button>
+          <p class="form-message" id="contact-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-inner"><a class="brand" href="#home">aries<span>pantry</span></a><span>Good food. Good people. A little heat. © 2026 Aries Pantry</span><a href="#home">Back to top ↑</a></div>
+  </footer>
+  <script>
+    const quantity = document.querySelector("#quantity");
+    const addButton = document.querySelector("#add-to-bag");
+    const cartCount = document.querySelector("#cart-count");
+    const cartMessage = document.querySelector("#cart-message");
+    const prices = { 1: 16, 2: 30, 3: 42 };
+    let bagCount = 0;
+
+    quantity.addEventListener("change", () => {
+      addButton.textContent = `Add to bag · $${prices[quantity.value]}`;
+    });
+    addButton.addEventListener("click", () => {
+      const count = Number(quantity.value);
+      bagCount += count;
+      cartCount.textContent = `(${bagCount})`;
+      cartMessage.textContent = `${count} ${count === 1 ? "jar" : "jars"} added to your bag. Thanks for the love!`;
+    });
+
+    document.querySelector(".menu-toggle").addEventListener("click", (event) => {
+      const menu = document.querySelector("#nav-links");
+      const isOpen = menu.classList.toggle("open");
+      event.currentTarget.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll("#nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.querySelector("#nav-links").classList.remove("open");
+        document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+      });
+    });
+    document.querySelector("#recipe-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.querySelector("#recipe-message").textContent = "Thanks for sharing! Your recipe is ready to be sent when we're connected to a submissions inbox.";
+      event.currentTarget.reset();
+    });
+    document.querySelector("#contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.querySelector("#contact-status").textContent = "Thanks for reaching out! This demo form isn't connected to an inbox yet.";
+      event.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>

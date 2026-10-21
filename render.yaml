@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: aries-pantry
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
